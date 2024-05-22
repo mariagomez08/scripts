@@ -1,0 +1,36 @@
+
+
+<div class="containerguion">
+
+
+<div class="guion" *ngIf="guionCompleto">
+  <h1>{{ guionCompleto.titulo }}</h1>
+  <h2>Género: {{ guionCompleto.genero }}</h2>
+
+  <div *ngFor="let escena of guionCompleto.escenas" class="escena">
+    <h3>Escena {{ escena.numero }}</h3>
+    <div class="descripcion">
+      <p><strong>Descripción:</strong> {{ escena.descripcion }}</p>
+    </div>
+    <div class="posiciones-actores" *ngIf="escena.posiciones_actores.length">
+      <h4>Posiciones de Actores:</h4>
+      <div *ngFor="let posicion of escena.posiciones_actores" class="posicion">
+        <p class="posicion-actor">{{ posicion.actor }}</p>
+        <p class="posicion-ubicacion">Ubicación: {{ posicion.ubicacion }}</p>
+        <p class="posicion-pose">Pose: {{ posicion.pose }}</p>
+      </div>
+    </div>
+    <div class="dialogos" *ngIf="escena.dialogos.length">
+      <h4>Diálogos:</h4>
+      <div *ngFor="let dialogo of escena.dialogos" class="dialogo">
+        <p class="dialogo-personaje">{{ dialogo.personaje }}:</p>
+        <p class="dialogo-texto">{{ dialogo.texto }}</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+

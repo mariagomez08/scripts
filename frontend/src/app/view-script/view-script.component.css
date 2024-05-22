@@ -1,0 +1,41 @@
+.guion {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.containerguion {
+  margin-top: 20px;
+}
+.guion h1, .guion h2, .guion h3 {
+  text-align: center;
+  margin-top: 0;
+}
+.guion h1 {
+  font-size: 2em;
+}
+.guion h2 {
+  font-size: 1.5em;
+  margin-top: 20px;
+}
+.guion h3 {
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+.descripcion {
+  margin-bottom: 20px;
+}
+.dialogos, .posiciones-actores {
+  margin-bottom: 20px;
+}
+.dialogos p, .posiciones-actores p {
+  margin: 5px 0;
+}
+.dialogo-personaje, .posicion-actor {
+  font-weight: bold;
+}
+.dialogo-texto, .posicion-ubicacion, .posicion-pose {
+  margin-left: 20px;
+}

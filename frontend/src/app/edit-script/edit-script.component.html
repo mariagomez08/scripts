@@ -1,0 +1,80 @@
+<form [formGroup]="guionForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="titulo">Título</label>
+    <input id="titulo" formControlName="titulo" />
+  </div>
+
+  <div>
+    <label for="genero">Género</label>
+    <input id="genero" formControlName="genero" />
+  </div>
+
+  <div>
+    <label for="autorId">Autor ID</label>
+    <input id="autorId" formControlName="autorId" />
+  </div>
+
+  <div formArrayName="escenas">
+    <div
+      *ngFor="let escena of escenas.controls; let i = index"
+      [formGroupName]="i"
+    >
+      <h3>Escena {{ i + 1 }}</h3>
+
+      <label for="numero">Número</label>
+      <input id="numero" formControlName="numero" />
+
+      <label for="descripcion">Descripción</label>
+      <input id="descripcion" formControlName="descripcion" />
+
+      <div formArrayName="dialogos">
+        <div
+          *ngFor="let dialogo of getDialogos(i).controls; let j = index"
+          [formGroupName]="j"
+        >
+          <label for="personaje">Personaje</label>
+          <input id="personaje" formControlName="personaje" />
+
+          <label for="texto">Texto</label>
+          <input id="texto" formControlName="texto" />
+
+          <button type="button" (click)="removeDialogo(i, j)">
+            Eliminar Diálogo
+          </button>
+        </div>
+        <button type="button" (click)="addDialogo(i)">Añadir Diálogo</button>
+      </div>
+
+      <div formArrayName="posiciones_actores">
+        <div
+          *ngFor="
+            let posicion of getPosicionesActores(i).controls;
+            let k = index
+          "
+          [formGroupName]="k"
+        >
+          <label for="actor">Actor</label>
+          <input id="actor" formControlName="actor" />
+
+          <label for="ubicacion">Ubicación</label>
+          <input id="ubicacion" formControlName="ubicacion" />
+
+          <label for="pose">Pose</label>
+          <input id="pose" formControlName="pose" />
+
+          <button type="button" (click)="removePosicionActor(i, k)">
+            Eliminar Posición
+          </button>
+        </div>
+        <button type="button" (click)="addPosicionActor(i)">
+          Añadir Posición
+        </button>
+      </div>
+
+      <button type="button" (click)="removeEscena(i)">Eliminar Escena</button>
+    </div>
+  </div>
+
+  <button type="button" (click)="addEscena()">Añadir Escena</button>
+  <button type="submit">Guardar Guion</button>
+</form>
